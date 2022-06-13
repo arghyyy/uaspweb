@@ -78,6 +78,6 @@ function getData($sorting = "ASC")
             $("#data").html(div);
         }
     })
-}s
+}
 
 getData()
