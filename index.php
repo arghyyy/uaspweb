@@ -14,8 +14,8 @@ if(isset($_GET['delete'])){
 $idButton = "Add";
 $valButton = "Add Data";
 
-$fakultas = "";
-$animo = "";
+$mobil = "";
+$terjual = "";
 if(isset($_GET["edit"])){
     $idButton = "edit";
     $valButton = "Edit Data";
@@ -40,6 +40,7 @@ if(isset($_GET["edit"])){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="assets/style.css">
     <title>Data Penjualan Mobil</title>
   </head>
   <body>
@@ -52,10 +53,10 @@ if(isset($_GET["edit"])){
                         <!-- tambah / edit -->
                         <form action="" method="post" class="row" id="formId">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $fakultas ?>" id="fakultas" name="fakultas" placeholder="Masukan fakultas">
+                                <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $animo ?>" id="animo" name="animo" placeholder="Masukan jumlah animo">
+                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukan jumlah terjual">
                             </div>
                             <?php
                             if($idButton == "edit"){
@@ -99,6 +100,6 @@ if(isset($_GET["edit"])){
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Instead of -->
 
-    <script src="js/script.js"></script>
+    <script src="assets/script.js"></script>
   </body>
 </html>
