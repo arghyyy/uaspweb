@@ -79,8 +79,7 @@ if(isset($_GET["edit"])){
                                 <tr>
                                 <th scope="col">Mobil</th>
                                 <th scope="col">Terjual</th>
-                                <th scope="col">Action</th>
-                
+                                <th scope="col">Action</th>               
                                 </tr>
                             </thead>
                             <tbody id="data">
