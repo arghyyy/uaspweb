@@ -8,7 +8,7 @@ $('#tambah').click(function(e){
     e.preventDefault();
     console.log("penceted")
     $.ajax({
-        url: 'controller/insert.php',
+        url: 'controller/create.php',
         type: 'POST',
         dataType: "json",
         data: data,
@@ -78,6 +78,6 @@ function getData($sorting = "ASC")
             $("#data").html(div);
         }
     })
-}
+}s
 
 getData()
