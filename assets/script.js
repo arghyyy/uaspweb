@@ -1,6 +1,6 @@
 
 
-$('#tambah').click(function(e){
+$('#buat').click(function(e){
     var data = {
         'mobil' : $("#mobil").val(),
         'terjual' : $("#terjual").val(),
