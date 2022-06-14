@@ -11,7 +11,7 @@ function getdata($sort)
         return $result;
 }
 
-function insertData($data)
+function createData($data)
 {
     global $db;
     $toyota = $data['mobil'];
