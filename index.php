@@ -15,6 +15,7 @@ $idButton = "Add";
 $valButton = "Add Data";
 
 $mobil = "";
+$jenis = "";
 $terjual = "";
 if(isset($_GET["edit"])){
     $idButton = "edit";
@@ -56,8 +57,9 @@ if(isset($_GET["edit"])){
                                 <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukan jumlah mobil yang terjual">
+                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Jumlah yang terjual">
                             </div>
+                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukan jenis mobil">
                             <?php
                             if($idButton == "edit"){
                                 ?>
@@ -78,6 +80,7 @@ if(isset($_GET["edit"])){
                             <thead>
                                 <tr>
                                 <th scope="col">Mobil</th>
+                                <th scope="col">Jenis Kendaraan</th>
                                 <th scope="col">Terjual</th>
                                 <th scope="col">Action</th>               
                                 </tr>

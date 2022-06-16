@@ -3,6 +3,7 @@
 $('#buat').click(function(e){
     var data = {
         'mobil' : $("#mobil").val(),
+        'jenis' : $("#jenis").val(),
         'terjual' : $("#terjual").val(),
     };
     e.preventDefault();
@@ -17,6 +18,7 @@ $('#buat').click(function(e){
             if(response.result == true)
             {
                 $("#mobil").val("");
+                $("#jenis").val("");
                 $("#terjual").val("");
                 getData()
                 alert("Data Berhasil Dimasukkan")
@@ -28,6 +30,7 @@ $('#buat').click(function(e){
 $('#edit').click(function(e){
     var data = {
         'mobil' : $("#mobil").val(),
+        'jenis' : $("#jenis").val(),
         'terjual' : $("#terjual").val(),
         'id' : $("#id").val(),
     };
@@ -42,6 +45,7 @@ $('#edit').click(function(e){
             if(response.result == true)
             {
                 $("#mobil").val("");
+                $("#jenis").val("");
                 $("#terjual").val("");
                 getData()
                 alert("Berhasil")
@@ -69,7 +73,7 @@ function getData($sorting = "ASC")
             var div = ""
             var id = 1
             response.forEach(element => {
-                row = '<tr><th scope="row">'+id+'</th><td>'+element.mobil+'</td><td>'+element.terjual+'</td><td><a href="?edit='+element.id+'" style="border: none" class="text-primary" data-id="'+element.id+'"><i class="bi bi-pencil-square"></i></a> | <a href="?delete='+element.id+'" class="text-danger" type="submit" id="delete" data-id="'+element.id+'" style="border: none"><i class="bi bi-trash-fill"></i></a></td></tr>';
+                row = '<tr><th scope="row">'+id+'</th><td>'+element.mobil+'</th><td>'+element.terjual+'</td><td>'+element.terjual+'</td><td><a href="?edit='+element.id+'" style="border: none" class="text-primary" data-id="'+element.id+'"><i class="bi bi-pencil-square"></i></a> | <a href="?delete='+element.id+'" class="text-danger" type="submit" id="delete" data-id="'+element.id+'" style="border: none"><i class="bi bi-trash-fill"></i></a></td></tr>';
                 div += row
                 id += 1
                 
