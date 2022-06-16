@@ -14,7 +14,7 @@ function getdata($sort)
 function createData($data)
 {
     global $db;
-    $toyota = $data['mobil'];
+    $mobil = $data['mobil'];
     $terjual = $data['terjual'];
     $sql = "INSERT INTO mobil (mobil, terjual) VALUES('$toyota', $terjual)";
     return $db->query($sql);
@@ -23,7 +23,7 @@ function createData($data)
 function editData($data)
 {
     global $db;
-    $toyota = $data['mobil'];
+    $mobil = $data['mobil'];
     $terjual = $data['terjual'];
     $id = $data['id'];
     $sql = "UPDATE mobil set mobil='$mobil', terjual = $terjual WHERE id=$id";

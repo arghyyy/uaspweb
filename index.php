@@ -56,7 +56,7 @@ if(isset($_GET["edit"])){
                                 <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukan jumlah terjual">
+                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukan jumlah mobil yang terjual">
                             </div>
                             <?php
                             if($idButton == "edit"){
