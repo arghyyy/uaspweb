@@ -17,4 +17,4 @@ if($conn->connect_error){
 
 // database connection to phpmyadmin
 
-?>
+?> 
