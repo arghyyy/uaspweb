@@ -15,8 +15,9 @@ function createData($data)
 {
     global $db;
     $mobil = $data['mobil'];
+    $jenis = $data['jenis'];
     $terjual = $data['terjual'];
-    $sql = "INSERT INTO mobil (mobil, terjual) VALUES('$toyota', $terjual)";
+    $sql = "INSERT INTO mobil (mobil, jenis, terjual) VALUES('$mobil','$jenis', '$terjual')";
     return $db->query($sql);
 }
 
@@ -24,9 +25,10 @@ function editData($data)
 {
     global $db;
     $mobil = $data['mobil'];
+    $jenis = $data['jenis'];
     $terjual = $data['terjual'];
     $id = $data['id'];
-    $sql = "UPDATE mobil set mobil='$mobil', terjual = $terjual WHERE id=$id";
+    $sql = "UPDATE mobil set mobil='$mobil',jenis='$jenis', terjual = $terjual WHERE id=$id";
     return $db->query($sql);
 }
 

@@ -25,6 +25,7 @@ if(isset($_GET["edit"])){
     $data = $db->query($sql);
     $result = $data->fetch_assoc();
     $mobil = $result["mobil"];
+    $jenis = $result["terjual"];
     $Terjual = $result["Terjual"];
     $id = $result["id"];
 }
@@ -56,10 +57,10 @@ if(isset($_GET["edit"])){
                             <div class="col-md-6">
                                 <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
+                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukan jenis kendaraan">
                             <div class="col-md-6">
                                 <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Jumlah yang terjual">
                             </div>
-                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukan jenis mobil">
                             <?php
                             if($idButton == "edit"){
                                 ?>
@@ -80,7 +81,7 @@ if(isset($_GET["edit"])){
                             <thead>
                                 <tr>
                                 <th scope="col">Mobil</th>
-                                <th scope="col">Jenis Kendaraan</th>
+                                <th scope="col">Jenis</th>
                                 <th scope="col">Terjual</th>
                                 <th scope="col">Action</th>               
                                 </tr>
