@@ -1,20 +1,16 @@
 <?php
 
-$mobil = isset($data['mobil'])? ($data['mobil']) : '';
-$terjual = isset($data['terjual'])? ($data['terjual']) : '';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db="uaspweb";
 
-$conn = new mysqli('localhost', 'root', '', 'uaspweb');
-if($conn->connect_error){
-    die('Connection Failed : '.$conn->connection_error);
-}else{
-    $stmt = $conn->prepare("masukkan data penjualan mobil(mobil, terjual)");
-    $stmt->bind_param("", $mobil, $terjual);
-    $stmt->execute();
-    echo"data berhasil dimasukkan";
-    $stmt->close();
-    $stmt->close(); 
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$db);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
 
-// database connection to phpmyadmin
-
-?> 
+?>
