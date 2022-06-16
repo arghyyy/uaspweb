@@ -51,7 +51,7 @@ if(isset($_GET["edit"])){
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <!-- tambah / edit -->
-                        <form action="" method="post" class="row" id="formId">
+                        <form action="connection.php" method="post" class="row" id="formId">
                             <div class="col-md-6">
                                 <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
