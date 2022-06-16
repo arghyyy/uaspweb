@@ -1,31 +1,68 @@
-SET NAMES utf8mb4;
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
-SET @old_autocommit=@@autocommit;
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 25 Apr 2022 pada 08.34
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.3
 
-USE uas202410103031;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+use uas202410103042;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Dumping data for table mobil
+-- Database: `uas202410103042`
 --
 
-SET AUTOCOMMIT=0;
-INSERT INTO mobil VALUES 
-(1,'toyota avanza','MPV'),
-(1,'toyota avanza','MPV'),
-(1,'toyota avanza','MPV'),
-(1,'toyota avanza','MPV'),
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mobil`
+--
+
+CREATE TABLE `mobil` (
+  `id` int(11) NOT NULL,
+  `fakultas_name` varchar(30) NOT NULL,
+  `animo` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `mobil`
+--
+
+INSERT INTO `mobil` (`id`, `nama`, `jenis`) VALUES
+(1, 'Toyota Avanza', MPV),
+(2, 'Daihatsu Rocky', SUV),
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
---
--- Dumping data for table terjual
---
-
-SET AUTOCOMMIT=0;
-INSERT INTO terjual VALUES 
-(1,'100000','1'),
-(1,'100000','1'),
-(1,'100000','1'),
-(1,'100000','1'),
-COMMIT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
