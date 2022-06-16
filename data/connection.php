@@ -1,7 +1,7 @@
 <?php
 
-$mobil = $data['mobil'];
-$terjual = $data['terjual'];
+$mobil = isset($data['mobil'])? ($data['mobil']) : '';
+$terjual = isset($data['terjual'])? ($data['terjual']) : '';
 
 $conn = new mysqli('localhost', 'root', '', 'uaspweb');
 if($conn->connect_error){
