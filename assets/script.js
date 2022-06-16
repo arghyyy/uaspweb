@@ -4,7 +4,7 @@ $('#buat').click(function(e){
     var data = {
         'mobil' : $("#mobil").val(),
         'jenis' : $("#jenis").val(),
-        'terjual' : $("#terjual").val(),
+        'terjual' : $("#jumlah_terjual").val(),
     };
     e.preventDefault();
     console.log("penceted")
@@ -19,7 +19,7 @@ $('#buat').click(function(e){
             {
                 $("#mobil").val("");
                 $("#jenis").val("");
-                $("#terjual").val("");
+                $("#jumlah_terjual").val("");
                 getData()
                 alert("Data Berhasil Dimasukkan")
             }
@@ -29,9 +29,9 @@ $('#buat').click(function(e){
 
 $('#edit').click(function(e){
     var data = {
-        'mobil' : $("#mobil").val(),
+        'nama' : $("#nama").val(),
         'jenis' : $("#jenis").val(),
-        'terjual' : $("#terjual").val(),
+        'jumlah_terjual' : $("#jumlah_terjual").val(),
         'id' : $("#id").val(),
     };
 
@@ -44,7 +44,7 @@ $('#edit').click(function(e){
 
             if(response.result == true)
             {
-                $("#mobil").val("");
+                $("#nama").val("");
                 $("#jenis").val("");
                 $("#terjual").val("");
                 getData()

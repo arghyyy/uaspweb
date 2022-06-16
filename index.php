@@ -21,12 +21,12 @@ if(isset($_GET["edit"])){
     $idButton = "edit";
     $valButton = "Edit Data";
     $id = $_GET['edit'];
-    $sql = "SELECT * FROM pembeli WHERE id = $id";
+    $sql = "SELECT nama, jenis, jumlah_terjual FROM `mobil` a inner join terjual b on a.id=b.mobil_id";
     $data = $db->query($sql);
     $result = $data->fetch_assoc();
-    $mobil = $result["mobil"];
-    $jenis = $result["terjual"];
-    $Terjual = $result["Terjual"];
+    $nama = $result["nama"];
+    $jenis = $result["jenis"];
+    $jumlah_terjual = $result["jumlah_terjual"];
     $id = $result["id"];
 }
 
@@ -57,9 +57,11 @@ if(isset($_GET["edit"])){
                             <div class="col-md-6">
                                 <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukan mobil">
                             </div>
-                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukan jenis kendaraan">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Jumlah yang terjual">
+                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukan jenis kendaraan">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukkan Jumlah terjual">
                             </div>
                             <?php
                             if($idButton == "edit"){
