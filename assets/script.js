@@ -48,7 +48,7 @@ $('#edit').click(function(e){
                 $("#jenis").val("");
                 $("#terjual").val("");
                 getData()
-                alert("Berhasil Menambah Data")
+                alert("Berhasil Mengubah Data")
                 window.location.href = 'index.php';
             }
         }

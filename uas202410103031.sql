@@ -11,7 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-use uas202410103042;
+use uas202410103031;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,7 +19,7 @@ use uas202410103042;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `uas202410103042`
+-- Database: `uas202410103031`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,8 @@ use uas202410103042;
 
 CREATE TABLE `mobil` (
   `id` int(11) NOT NULL,
-  `fakultas_name` varchar(30) NOT NULL,
-  `animo` int(10) NOT NULL
+  `nama` VARCHAR(200) NOT NULL,
+  `jenis` VARCHAR(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -47,9 +47,9 @@ INSERT INTO `mobil` (`id`, `nama`, `jenis`) VALUES
 --
 
 --
--- Indeks untuk tabel `fakultas`
+-- Indeks untuk tabel `mobil`
 --
-ALTER TABLE `fakultas`
+ALTER TABLE `mobil`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +57,49 @@ ALTER TABLE `fakultas`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `fakultas`
+-- AUTO_INCREMENT untuk tabel `mobil`
 --
-ALTER TABLE `fakultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `mobil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+-- 
+-- struktur untuk tabel  `terjual`
+--
+
+CREATE TABLE `terjual` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `jumlah_terjual` INT(11) NOT NULL,
+  `mobil_id` INT(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `terjual`
+--
+
+INSERT INTO `terjual` (`id`, `nama`, `jenis`) VALUES
+(1, 100000, 1),
+(2, 200000, 2),
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `terjual`
+--
+ALTER TABLE `terjual`
+  ADD FOREIGN KEY (`mobil_id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `terjual`
+--
+ALTER TABLE `terjual`
+  MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

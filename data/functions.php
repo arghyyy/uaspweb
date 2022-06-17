@@ -17,7 +17,7 @@ function createData($data)
     $nama = $data['nama'];
     $jenis = $data['jenis'];
     $terjual = $data['terjual'];
-    $sql = "INSERT INTO mobil (mobil, jenis, terjual) VALUES('$mobil','$jenis', '$terjual')";
+    $sql = "INSERT INTO mobil (mobil, jenis, terjual) VALUES($mobil, $jenis, $terjual)";
     return $db->query($sql);
 }
 

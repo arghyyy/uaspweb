@@ -6,7 +6,7 @@ $password = "";
 $db="uaspweb";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password,$db);
+$conn = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
 if (!$conn) {
