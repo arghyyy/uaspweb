@@ -29,7 +29,7 @@ function editData($data)
     $nama = $data['nama'];
     $jumlah_terjual = $data['jumlah_terjual'];
     $id_jenis = $data['id_jenis'];
-    $sql = "SELECT nama, jumlah_terjual, id_jenis FROM `mobil` a inner join terjual b on a.id=b.mobil_id";
+    $sql = "UPDATE SET nama = '$nama', jumlah_terjual = '$jumlah_terjual', id_jenis = '$id_jenis' ";
     return $conn->query($sql);
 }
 
