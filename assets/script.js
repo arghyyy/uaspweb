@@ -1,37 +1,37 @@
 
 
-$('#buat').click(function(e){
-    var data = {
-        'mobil' : $("#mobil").val(),
-        'jenis' : $("#jenis").val(),
-        'terjual' : $("#jumlah_terjual").val(),
-    };
-    e.preventDefault();
+$('#Add').click(function(e){
     console.log("penceted")
+    var data = {
+        'nama' : $("#mobil").val(),
+        'jenis' : $("#jenis").val(),
+        'jumlah_terjual' : $("#terjual").val(),
+    };
     $.ajax({
         url: 'controller/create.php',
         type: 'POST',
         dataType: "json",
         data: data,
         success: function(response){
-     
+            console.log(response)
             if(response.result == true)
             {
-                $("#mobil").val("");
-                $("#jenis").val("");
+                $("#nama").val("");
                 $("#jumlah_terjual").val("");
+                $("#id_jenis").val("");
                 getData()
                 alert("Data Berhasil Dimasukkan")
             }
         }
     })
+    e.preventDefault();
 });
 
 $('#edit').click(function(e){
     var data = {
         'nama' : $("#nama").val(),
-        'jenis' : $("#jenis").val(),
         'jumlah_terjual' : $("#jumlah_terjual").val(),
+        'id_jenis' : $("#id_jenis").val(),
         'id' : $("#id").val(),
     };
 
@@ -45,8 +45,8 @@ $('#edit').click(function(e){
             if(response.result == true)
             {
                 $("#nama").val("");
-                $("#jenis").val("");
-                $("#terjual").val("");
+                $("#jumlah_terjual").val("");
+                $("#id_jenis").val("");
                 getData()
                 alert("Berhasil Mengubah Data")
                 window.location.href = 'index.php';
@@ -54,6 +54,18 @@ $('#edit').click(function(e){
         }
     })
 });
+
+$(document).ready(function(){
+    $(".content").slice(0, 4).show();
+    $("#loadMore").on("click", function(e){
+      e.preventDefault();
+      $(".content:hidden").slice(0, 4).slideDown();
+      if($(".content:hidden").length == 0) {
+        $("#loadMore").text("No Content").addClass("noContent");
+      }
+    });
+    
+  });
 
 
 $("#sort").on("change", function(e){
@@ -73,7 +85,8 @@ function getData($sorting = "ASC")
             var div = ""
             var id = 1
             response.forEach(element => {
-                row = '<tr><th scope="row">'+id+'</th><td>'+element.mobil+'</th><td>'+element.terjual+'</td><td>'+element.terjual+'</td><td><a href="?edit='+element.id+'" style="border: none" class="text-primary" data-id="'+element.id+'"><i class="bi bi-pencil-square"></i></a> | <a href="?delete='+element.id+'" class="text-danger" type="submit" id="delete" data-id="'+element.id+'" style="border: none"><i class="bi bi-trash-fill"></i></a></td></tr>';
+                console.log(element)
+                row = '<tr><th scope="row">'+element.nama+'</th><td>'+element.jenis+'</th><td>'+element.jumlah_terjual+'</td><td><a href="?edit='+element.id+'" style="border: none" class="text-primary" data-id="'+element.id+'"><i class="bi bi-pencil-square"></i></a> | <a href="?delete='+element.id+'" class="text-danger" type="submit" id="delete" data-id="'+element.id+'" style="border: none"><i class="bi bi-trash-fill"></i></a></td></tr>';
                 div += row
                 id += 1
                 

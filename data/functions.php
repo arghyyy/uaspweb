@@ -6,30 +6,32 @@ require "connection.php";
 
 function getdata($sort)
 {
-        global $db;
-        $result = $db->query("SELECT * FROM mobil ORDER BY terjual $sort");
+        global $conn;
+        echo "SELECT * FROM mobil JOIN jenis ON mobil.id_jenis = mobil.id_jenis ORDER BY jumlah_terjual $sort";
+        $result = $conn->query("SELECT * FROM mobil JOIN jenis ON mobil.id_jenis = mobil.id_jenis ORDER BY jumlah_terjual $sort");
+    
         return $result;
 }
 
 function createData($data)
 {
-    global $db;
+    global $conn;
     $nama = $data['nama'];
-    $jenis = $data['jenis'];
-    $terjual = $data['terjual'];
-    $sql = "INSERT INTO mobil (mobil, jenis, terjual) VALUES($mobil, $jenis, $terjual)";
-    return $db->query($sql);
+    $jumlah_terjual = $data['jumlah_terjual'];
+    $id_jenis = $data['id_jenis'];
+    $sql = "INSERT INTO mobil (id, nama, jumlah_terjual, id_jenis) VALUES(NULL, $nama, $jumlah_terjual, $jenis)";
+    return $conn->query($sql);
 }
 
 function editData($data)
 {
-    global $db;
-    $nama = $data['nama'];
-    $jenis = $data['jenis'];
-    $terjual = $data['terjual'];
+    global $conn;
     $id = $data['id'];
-    $sql = "UPDATE mobil set mobil='$mobil',jenis='$jenis', terjual = $terjual WHERE id=$id";
-    return $db->query($sql);
+    $nama = $data['nama'];
+    $jumlah_terjual = $data['jumlah_terjual'];
+    $id_jenis = $data['id_jenis'];
+    $sql = "SELECT nama, jumlah_terjual, id_jenis FROM `mobil` a inner join terjual b on a.id=b.mobil_id";
+    return $conn->query($sql);
 }
 
 

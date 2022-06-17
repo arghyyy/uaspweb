@@ -5,7 +5,7 @@ require '../data/functions.php';
 
 
 $result = FALSE;
-if(isset($_POST['Mobil']) & isset($_POST['jenis']) & isset($_POST['Terjual']))
+if(isset($_POST['nama']) & isset($_POST['jumlah_terjual']) & isset($_POST['id_jenis']))
 {
     $result = editData($_POST);
 }

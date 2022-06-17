@@ -19,7 +19,7 @@ use uas202410103031;
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `uas202410103031`
+-- Database: `uaspweb`
 --
 
 -- --------------------------------------------------------
@@ -29,18 +29,30 @@ use uas202410103031;
 --
 
 CREATE TABLE `mobil` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` VARCHAR(200) NOT NULL,
-  `jenis` VARCHAR(200) NOT NULL
+  `jumlah_terjual` VARCHAR(200) NOT NULL
+  `id_jenis` INT(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `mobil`
---
 
-INSERT INTO `mobil` (`id`, `nama`, `jenis`) VALUES
-(1, 'Toyota Avanza', MPV),
-(2, 'Daihatsu Rocky', SUV),
+
+INSERT INTO `mobil` (`id`, `nama`, `jumlah_terjual`,`id_jenis`) VALUES
+(1, 'toyota avanza', 100000,1),
+(2, 'toyota raize', 250000,2),
+(3, 'Mitsubishi pajero', 375000, 3),
+(4, 'Honda Civic', 20000, 4),
+(5, 'Honda CRV', 500000, 5),
+(6, 'daihatsu rocky', 600000, 6),
+(7, 'daihatsu sirion', 650000, 7),
+(8, 'toyota rush', 700000, 8),
+(9, 'Honda Brio', 900000, 9),
+(10, 'Mazda 2', 850000, 10),
+(11, 'mazda 3', 900000, 11),
+(12, 'wuling cortez', 1000000, 12),
+
 
 --
 -- Indexes for dumped tables
@@ -64,41 +76,51 @@ ALTER TABLE `mobil`
 COMMIT;
 
 -- 
--- struktur untuk tabel  `terjual`
+-- struktur untuk tabel  `jenis`
 --
 
-CREATE TABLE `terjual` (
+CREATE TABLE `jenis` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `jumlah_terjual` INT(11) NOT NULL,
-  `mobil_id` INT(11) NOT NULL
+  `jenis` VARCHAR(200) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `terjual`
+-- Dumping data untuk tabel `jenis`
 --
 
-INSERT INTO `terjual` (`id`, `nama`, `jenis`) VALUES
-(1, 100000, 1),
-(2, 200000, 2),
+INSERT INTO `jenis` (`id`, `jenis`) VALUES
+(1, 'MPV'),
+(2, 'SUV'),
+(3, 'SUV'),
+(4, 'Sedan'),
+(5, 'SUV'),
+(6, 'SUV'),
+(7, 'hatchback'),
+(8, 'SUV'),
+(9, 'hatchback'),
+(10, 'hatchback'),
+(11, 'hatchback'),
+(12, 'MPV'),
+
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `terjual`
+-- Indeks untuk tabel `jenis`
 --
-ALTER TABLE `terjual`
-  ADD FOREIGN KEY (`mobil_id`);
+ALTER TABLE `jenis`
+  ADD FOREIGN KEY (`jenis`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `terjual`
+-- AUTO_INCREMENT untuk tabel `jenis`
 --
-ALTER TABLE `terjual`
+ALTER TABLE `jenis`
   MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
