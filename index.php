@@ -19,17 +19,18 @@ $mobil = "";
 $jenis = "";
 $terjual = "";
 if(isset($_GET["edit"])){
+    // echo "ok";
     $idButton = "edit";
     $valButton = "Edit Data";
     $id = $_GET['edit'];
-    $sql = "SELECT nama, jumlah_terjual, id_jenis FROM `mobil` a INNER JOIN jenis b on a.id=b.mobil_id";
-    $data = $db->query($sql);
+    $sql = "SELECT nama, jumlah_terjual, jenis FROM mobil JOIN jenis on jenis.id = mobil.id_jenis";
+    $data = $conn->query($sql);
     $result = $data->fetch_assoc();
     $nama = $result["nama"];
     $jenis = $result["jenis"];
     $jumlah_terjual = $result["jumlah_terjual"];
-    $id_jenis = $result["id_jenis"];
-    $id = $result["id"];
+    // $id_jenis = $result["id_jenis"];
+    // $id = $result["id"];
 }
 
 ?>
@@ -58,20 +59,59 @@ if(isset($_GET["edit"])){
                             <div class = "flex">
                         <!-- tambah / edit -->
                         <form method="post" class="row" id="formId">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $mobil ?>" id="mobil" name="mobil" placeholder="Masukkan mobil">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $jenis ?>" id="jenis" name="jenis" placeholder="Masukkan jenis kendaraan">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" value="<?= $terjual ?>" id="terjual" name="terjual" placeholder="Masukkan Jumlah terjual">
-                            </div>
+  
                             <?php
                             if($idButton == "edit"){
                                 ?>
+                                <div class="col-md-6">
+                                <input type="text" class="form-control" value="<?= $nama ?>" id="mobil" name="mobil" placeholder="Masukkan mobil">
+                            </div>
+                            <div class="col-md-6">
+                            <select class="form-select" id="jenis" name="jenis" aria-label="Default select example">
+                                <?php
+                                    $sql = "SELECT * FROM jenis";
+                                    $data = $conn->query($sql);
+                                    while($row = $data->fetch_assoc()){
+                                        ?>
+
+                                        <option value="1"><?= $row["jenis"] ?></option>
+                                        <?php
+                                    }
+                                    // $result = $data->fetch_assoc();
+                                ?>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" value="<?= $jumlah_terjual ?>" id="terjual" name="terjual" placeholder="Masukkan Jumlah terjual">
+                            </div>
                                 <input type="hidden" id="id" name="id" value="<?= $id ?>">
                                 <?php
+                            }else{
+                                ?>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control"  id="mobil" name="mobil" placeholder="Masukkan mobil">
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select" id="jenis" name="jenis" aria-label="Default select example">
+                                <?php
+                                    $sql = "SELECT * FROM jenis";
+                                    $data = $conn->query($sql);
+                                    while($row = $data->fetch_assoc()){
+                                        ?>
+
+                                            <option value="1"><?= $row["jenis"] ?></option>
+                                        <?php
+                                    }
+                                    // $result = $data->fetch_assoc();
+                                ?>
+                                </select>
+                                <!-- <input type="text" class="form-control" id="jenis" name="jenis" placeholder="Masukkan jenis kendaraan"> -->
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control"  id="terjual" name="terjual" placeholder="Masukkan Jumlah terjual">
+                            </div>
+                            <?php
                             }
                             ?>
                             <div class="col-md-12 mt-2">

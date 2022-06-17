@@ -7,9 +7,8 @@ require "connection.php";
 function getdata($sort)
 {
         global $conn;
-        echo "SELECT * FROM mobil JOIN jenis ON mobil.id_jenis = mobil.id_jenis ORDER BY jumlah_terjual $sort";
+        // echo "SELECT * FROM mobil JOIN jenis ON mobil.id_jenis = mobil.id_jenis ORDER BY jumlah_terjual $sort";
         $result = $conn->query("SELECT * FROM mobil JOIN jenis ON mobil.id_jenis = mobil.id_jenis ORDER BY jumlah_terjual $sort");
-    
         return $result;
 }
 
